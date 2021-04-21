@@ -2,10 +2,13 @@
 import React from 'react'
 
 // Functionコンポーネンtの(reactではClassコンポーネントは基本使わない)
-const Basic1 = () => {
+// 親からのデータを受け取る際は引数へpropsを記載
+const Basic1 = (props) => {
   return (
     <div>
-      <h1>Hello React1</h1>
+
+      {/* 引数で受け取ったpropsの変数を指定して表示する */}
+      <h1>Hello React1 {props.name}  </h1>
       <h1>Hello React2</h1>
     </div>
   )
