@@ -4,6 +4,8 @@ import './App.css';
 // コンポーネントインポート
 import Basic1 from "./components/Basic1"
 import Basic2 from "./components/Basic2"
+import Basic3 from "./components/BasicUseEffect"
+import TimerCom from "./components/TimerContainer"
 
 
 function App() {
@@ -15,6 +17,10 @@ function App() {
         <Basic1 name="Hooks" />
         <hr/>
         <Basic2 />
+        <hr/>
+        <Basic3/>
+        <hr/>
+        <TimerCom/>
       </header>
     </div>
   );
