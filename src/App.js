@@ -6,7 +6,7 @@ import Basic1 from "./components/Basic1"
 import Basic2 from "./components/Basic2"
 import Basic3 from "./components/BasicUseEffect"
 import TimerCom from "./components/TimerContainer"
-
+import ApiFetch from "./components/ApiFetch"
 
 function App() {
   return (
@@ -21,6 +21,8 @@ function App() {
         <Basic3/>
         <hr/>
         <TimerCom/>
+        <hr/>
+        <ApiFetch/>
       </header>
     </div>
   );
