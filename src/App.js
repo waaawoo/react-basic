@@ -3,6 +3,8 @@ import './App.css';
 
 // コンポーネントインポート
 import Basic1 from "./components/Basic1"
+import Basic2 from "./components/Basic2"
+
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
 
         {/* コンポーネント呼び出し name= 子コンポーネントへデータを渡す */}
         <Basic1 name="Hooks" />
+        <hr/>
+        <Basic2 />
       </header>
     </div>
   );
