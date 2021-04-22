@@ -13,6 +13,7 @@ import BasicReducer from './components/BasicReducer';
 import CompB from './components/CompB';
 // useReducerのインポート
 import {useReducer} from "react"
+import Memo from './components/Memo';
 
 // 初期値
 const initialState = 0
@@ -56,8 +57,10 @@ function App() {
           < BasicReducer /> */}
 
           {/* グローバルカウント */}
-          Count {count}
-          <CompB/>
+          {/* Count {count}
+          <CompB/> */}
+          <Memo/>
+
         </header>
       </div>
     </AppContext.Provider>
