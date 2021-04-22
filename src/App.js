@@ -12,8 +12,10 @@ import B from "./components/contexts/B"
 import BasicReducer from './components/BasicReducer';
 import CompB from './components/CompB';
 // useReducerのインポート
-import {useReducer} from "react"
+import {useReducer, useState, useCallback} from "react"
 import Memo from './components/Memo';
+import CountDisplay from './components/CountDisplay';
+import CountClick from './components/CountClick';
 
 // 初期値
 const initialState = 0
@@ -31,9 +33,23 @@ const reducer = (currentState, action) => {
 }
 
 function App() {
+  const [count, dispatch] = useReducer(reducer, initialState)
+
+  const [count1, setCount1] = useState(0)
+  const [count2, setCount2] = useState(0)
+
+  // レンダリング範囲を絞るため、第二引数に指定した値が変更したらレンダリングがされるようにする
+  const AddCount1 = useCallback(() => {
+    setCount1(pc1 => pc1 + 1)
+  }, [])
+
+  // レンダリング範囲を絞るため、第二引数に指定した値が変更したらレンダリングがされるようにする
+  const AddCount2 = useCallback(() => {
+    setCount2(pc2 => pc2 + 1)
+  }, [])
 
   // Reducerの実体
-  const [count, dispatch] = useReducer(reducer, initialState)
+
   return (
 
     // Contextのproviderで囲ったコンポーネントないで使用できる
@@ -59,8 +75,25 @@ function App() {
           {/* グローバルカウント */}
           {/* Count {count}
           <CompB/> */}
-          <Memo/>
+          {/* <Memo/> */}
 
+          {/* -------------------- 全てレンダリングされてしまっている -------------------------- */}
+          {/* nameとcountを渡す */}
+          < CountDisplay name="count1" count={count1}/>
+
+          {/* 関数を渡す
+            <>この中はchildren変数で扱われる </>
+           */}
+          <CountClick handleClick={AddCount1}>AddCount1</CountClick>
+
+          {/* nameとcountを渡す */}
+          < CountDisplay name="count2" count={count2}/>
+
+          {/* 関数を渡す
+            <>この中はchildren変数で扱われる </>
+           */}
+          <CountClick handleClick={AddCount2}>AddCount2</CountClick>
+          {/* -------------------- 全てレンダリングされてしまっている -------------------------- */}
         </header>
       </div>
     </AppContext.Provider>
